@@ -1,4 +1,5 @@
 import { Settings } from "../types";
+import { Gauge } from "lucide-react";
 
 export default function Footer({ settings }: { settings: Settings | null }) {
   return (
@@ -6,7 +7,16 @@ export default function Footer({ settings }: { settings: Settings | null }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-white text-lg font-bold mb-4">{settings?.siteName || "Industrial Pro"}</h3>
+            <div className="flex items-center gap-2 mb-4">
+              {settings?.logoUrl ? (
+                <img src={settings.logoUrl} alt="Logo" className="h-8 w-auto object-contain flex-shrink-0" referrerPolicy="no-referrer" />
+              ) : (
+                <div className="p-1.5 bg-blue-600 rounded-md text-white flex-shrink-0" style={{ backgroundColor: settings?.primaryColor || '#2563eb' }}>
+                  <Gauge size={20} />
+                </div>
+              )}
+              <h3 className="text-white text-lg font-bold">{settings?.siteName || "Industrial Pro"}</h3>
+            </div>
             <p className="text-sm">{settings?.seoDescription || "Expert calibration, testing, repair, and sales of industrial instruments."}</p>
           </div>
           <div>

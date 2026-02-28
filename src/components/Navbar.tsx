@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Settings } from "../types";
-import { Wrench, Menu, X } from "lucide-react";
+import { Gauge, Menu, X } from "lucide-react";
 import React, { useState } from "react";
 
 export default function Navbar({ settings }: { settings: Settings | null }) {
@@ -16,7 +16,7 @@ export default function Navbar({ settings }: { settings: Settings | null }) {
                 <img src={settings.logoUrl} alt="Logo" className="h-10 w-auto object-contain flex-shrink-0" referrerPolicy="no-referrer" />
               ) : (
                 <div className="p-2 bg-blue-600 rounded-lg text-white flex-shrink-0" style={{ backgroundColor: settings?.primaryColor || '#2563eb' }}>
-                  <Wrench size={24} />
+                  <Gauge size={24} />
                 </div>
               )}
               <span className="font-bold text-lg sm:text-xl text-slate-900 truncate">
