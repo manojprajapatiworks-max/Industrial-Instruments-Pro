@@ -51,6 +51,11 @@ export default function SettingsPage({ settings: initialSettings }: { settings: 
             <h3 className="text-lg font-medium text-slate-900 mb-4 border-b pb-2">Appearance</h3>
             <div className="space-y-4">
               <div>
+                <label className="block text-sm font-medium text-slate-700 mb-1">Logo URL</label>
+                <input type="url" name="logoUrl" defaultValue={settings.logoUrl} placeholder="https://example.com/logo.png" className="w-full px-3 py-2 border border-slate-300 rounded-md" />
+                <p className="text-xs text-slate-500 mt-1">Provide a URL to your logo image. Leave blank to use the default icon.</p>
+              </div>
+              <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">Primary Color (Hex)</label>
                 <div className="flex gap-3 items-center">
                   <input type="color" name="primaryColor" defaultValue={settings.primaryColor} className="h-10 w-10 rounded cursor-pointer border-0 p-0" />

@@ -53,6 +53,7 @@ if (checkSettings.count === 0) {
   insertSetting.run("contactEmail", "admin@example.com");
   insertSetting.run("contactPhone", "+1 234 567 8900");
   insertSetting.run("seoDescription", "Calibration, testing, repair, and sales of industrial instruments.");
+  insertSetting.run("logoUrl", "");
 }
 
 async function startServer() {

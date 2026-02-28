@@ -34,5 +34,6 @@ export type Settings = {
   contactEmail: string;
   contactPhone: string;
   seoDescription: string;
-  [key: string]: string;
+  logoUrl?: string;
+  [key: string]: string | undefined;
 };
