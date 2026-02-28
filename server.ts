@@ -2,6 +2,7 @@ import express from "express";
 import { createServer as createViteServer } from "vite";
 import Database from "better-sqlite3";
 import path from "path";
+import jwt from "jsonwebtoken";
 
 const db = new Database("app.db");
 
@@ -62,6 +63,17 @@ async function startServer() {
 
   // API Routes
   
+  // Auth
+  app.post("/api/auth/login", (req, res) => {
+    const { email, password } = req.body;
+    if (email === "manojprajapatiworks@gmail.com" && password === "Shiva@5696") {
+      const token = jwt.sign({ email }, "super_secret_key_123", { expiresIn: "24h" });
+      res.json({ token });
+    } else {
+      res.status(401).json({ error: "Invalid credentials" });
+    }
+  });
+
   // Categories
   app.get("/api/categories", (req, res) => {
     const categories = db.prepare("SELECT * FROM categories").all();

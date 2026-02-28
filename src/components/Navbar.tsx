@@ -22,7 +22,7 @@ export default function Navbar({ settings }: { settings: Settings | null }) {
             <a href="#services" className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">Services</a>
             <a href="#products" className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">Products</a>
             <a href="#contact" className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
-            <Link to="/admin" className="text-blue-600 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-medium border border-blue-600 hover:bg-blue-50 transition-colors" style={{ borderColor: settings?.primaryColor || '#2563eb', color: settings?.primaryColor || '#2563eb' }}>Admin</Link>
+            <Link to="/login" className="text-blue-600 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-medium border border-blue-600 hover:bg-blue-50 transition-colors" style={{ borderColor: settings?.primaryColor || '#2563eb', color: settings?.primaryColor || '#2563eb' }}>Admin</Link>
           </div>
         </div>
       </div>

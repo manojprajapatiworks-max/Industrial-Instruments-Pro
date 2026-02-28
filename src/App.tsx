@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
+import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Settings } from "./types";
@@ -39,6 +40,7 @@ export default function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home settings={settings} />} />
+            <Route path="/login" element={<Login settings={settings} />} />
             <Route path="/admin/*" element={<Admin settings={settings} />} />
           </Routes>
         </main>

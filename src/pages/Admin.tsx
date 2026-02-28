@@ -1,6 +1,6 @@
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route, Link, useLocation, Navigate, useNavigate } from "react-router-dom";
 import { Settings as SettingsType } from "../types";
-import { LayoutDashboard, Tags, Package, Inbox, Settings as SettingsIcon } from "lucide-react";
+import { LayoutDashboard, Tags, Package, Inbox, Settings as SettingsIcon, LogOut } from "lucide-react";
 import Dashboard from "./admin/Dashboard";
 import Categories from "./admin/Categories";
 import Products from "./admin/Products";
@@ -9,6 +9,17 @@ import SettingsPage from "./admin/Settings";
 
 export default function Admin({ settings }: { settings: SettingsType | null }) {
   const location = useLocation();
+  const navigate = useNavigate();
+  const token = localStorage.getItem("adminToken");
+
+  if (!token) {
+    return <Navigate to="/login" replace />;
+  }
+
+  const handleLogout = () => {
+    localStorage.removeItem("adminToken");
+    navigate("/");
+  };
 
   const navItems = [
     { path: "/admin", label: "Dashboard", icon: LayoutDashboard },
@@ -45,6 +56,15 @@ export default function Admin({ settings }: { settings: SettingsType | null }) {
               );
             })}
           </nav>
+        </div>
+        <div className="p-4 border-t border-slate-200 mt-auto absolute bottom-0 w-64">
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-3 px-3 py-2 w-full rounded-md text-sm font-medium text-red-600 hover:bg-red-50 transition-colors"
+          >
+            <LogOut size={18} />
+            Logout
+          </button>
         </div>
       </aside>
 
